@@ -1,38 +1,137 @@
-.App {
-  text-align: center;
+.App-Shell{
+    display: flex;
+    flex-flow: column;
+    max-height: 100vh;
+    height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-Main-Contents{
+    display: flex;
+    flex-flow: row;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App-Header {
+    flex-basis: 5vh;
+    background-color: gray;
+    color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App-Header > * , .App-Page-Footer > * {
+    margin: 0;
+}
+.App-Article-Contents{
+    overflow-y: auto;
+    flex-grow: 5;
 }
 
-.App-link {
-  color: #61dafb;
+.App-Main-Contents{
+    flex-basis: 90vh;
+    overflow-y: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-Page-Footer{
+    flex-basis: 5vh;
+    background-color: lightgray;
+    color: black;
 }
+
+.App-Navigation-Bar{
+    flex-basis: 10rem;
+    flex-shrink: 0;
+    background-color: lightskyblue;
+    overflow: hidden;
+}
+
+.App-Sidebar{
+    flex-basis: 20rem;
+    flex-shrink: 0;
+    background-color: lightpink;
+    overflow-y: scroll;
+
+}
+
+.App-Sidebar-Hide{
+    flex-basis: 0;
+    transition: flex-basis 0.5s ease-in;
+    overflow: hidden;
+    flex-shrink: 0 ;
+}
+
+.App-Sidebar-Show{
+    flex-basis: 10rem;
+    transition: flex-basis 0.5s ease-in;
+    flex-shrink: 0 ;
+}
+
+.SideMenuMobileBar{
+    display: none;
+}
+
+.b-1-5x{
+    font-size: 1.5rem;
+}
+.fa-icon-right{
+    float: right;
+}
+
+.show-aside-hide{
+    flex-basis: 0;
+    transition: flex-basis 0.5s ease-in;
+    overflow: hidden;
+    flex-shrink: 0 ;
+}
+.show-aside-show{
+    flex-basis: 2.1rem;
+    transition: flex-basis 0.5s ease-in;
+    overflow: hidden;
+
+    flex-shrink: 0 ;
+}
+
+
+
+
+@media only screen and (max-width: 720px) {
+
+    .SideMenuMobileBar{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .App-Main-Contents{
+        flex-flow: column;
+    }
+
+    .App-Navigation-Bar{
+        order:0;
+        /*        flex-basis: 0rem;*/
+    }
+
+    .App-Sidebar{
+        order:1
+    }
+
+    .App-Article-Contents{
+        order: 2;
+
+    }
+    .App-Sidebar-Hide-md {
+        flex-basis: 0;
+        transition: flex-basis 0.5s ease-in;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .App-Sidebar-Show-md {
+        flex-basis: 80vh;
+        transition: flex-basis 0.5s ease-in;
+        flex-shrink: 0;
+    }
+
+    .large-screen-only{
+        display: none;
+    }
+}
+
+
+
